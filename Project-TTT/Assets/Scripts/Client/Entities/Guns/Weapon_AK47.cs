@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 public class Weapon_AK47 : MonoBehaviour {
-	
-	//private string weaponName = "AK-47";
-	//private float weaponDamage = 20f;
-	private float weaponRange = 200f;
-	private float weaponFireSpeed = 1.0f;
-	private int weaponAmountOfBullets = 1;
-	private bool isAuto = true;
+
+	//private static string weaponName = "AK-47";
+	//private static float weaponDamage = 20f;
+	private static float weaponRange = 200f;
+	private static float weaponFirerate = 0.3f;
+	private static int weaponAmountOfBullets = 1;
+	private static bool isAuto = true;
 
 	[Header("Camera Settings")]
 	[SerializeField]
@@ -20,7 +20,7 @@ public class Weapon_AK47 : MonoBehaviour {
 	private const string PLAYER_TAG = "Player";
 	private const string PROP_TAG = "Prop";
 
-	private float timeLeft;
+	private float timeLeft = weaponFirerate;
 	private bool startTimer = false;
 
 	private GunController gunCtrl;
@@ -39,10 +39,10 @@ public class Weapon_AK47 : MonoBehaviour {
 			if (Input.GetButton("Mouse_Fire") && startTimer == false) {
 				startTimer = true;
 				gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
-				Debug.Log("1");
 			}
 		} else if (isAuto == false) {
-			if (Input.GetButtonDown("Mouse_Fire")) {
+			if (Input.GetButtonDown("Mouse_Fire") && startTimer == false) {
+				startTimer = true;
 				gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
 			}
 		}
@@ -50,9 +50,9 @@ public class Weapon_AK47 : MonoBehaviour {
 		//Timer
 		if (startTimer == true) {
 			timeLeft -= Time.fixedDeltaTime;
-			if (timeLeft < 0) {
-				Debug.Log("2");
-				timeLeft = weaponFireSpeed;
+			timeLeft = Mathf.Clamp(timeLeft, 0, weaponFirerate);
+			if (timeLeft == 0) {
+				timeLeft = weaponFirerate;
 				startTimer = false;
 			}
 		}
