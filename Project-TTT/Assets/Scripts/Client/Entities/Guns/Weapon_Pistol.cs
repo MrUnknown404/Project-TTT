@@ -21,7 +21,6 @@ public class Weapon_Pistol : MonoBehaviour {
 	private const string PROP_TAG = "Prop";
 
 	private float timeLeft;
-	private bool canFire = true;
 	private bool startTimer = false;
 
 	private GunController gunCtrl;
@@ -37,10 +36,9 @@ public class Weapon_Pistol : MonoBehaviour {
 	private void Update() {
 		//Fire
 		if (isAuto == true) {
-			if (Input.GetButton("Mouse_Fire") && canFire == true) {
-				gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
-				canFire = false;
+			if (Input.GetButton("Mouse_Fire") && startTimer == false) {
 				startTimer = true;
+				gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
 
 			}
 		} else if (isAuto == false) {
@@ -55,7 +53,6 @@ public class Weapon_Pistol : MonoBehaviour {
 			if (timeLeft < 0) {
 				timeLeft = weaponFireSpeed;
 				startTimer = false;
-				canFire = true;
 			}
 		}
 	}

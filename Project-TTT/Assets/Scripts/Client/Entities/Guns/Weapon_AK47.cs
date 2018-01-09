@@ -21,7 +21,6 @@ public class Weapon_AK47 : MonoBehaviour {
 	private const string PROP_TAG = "Prop";
 
 	private float timeLeft;
-	private bool canFire = true;
 	private bool startTimer = false;
 
 	private GunController gunCtrl;
@@ -37,10 +36,10 @@ public class Weapon_AK47 : MonoBehaviour {
 	private void Update() {
 		//Fire
 		if (isAuto == true) {
-			if (Input.GetButton("Mouse_Fire") && canFire == true) {
-				canFire = false;
+			if (Input.GetButton("Mouse_Fire") && startTimer == false) {
 				startTimer = true;
 				gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
+				Debug.Log("1");
 			}
 		} else if (isAuto == false) {
 			if (Input.GetButtonDown("Mouse_Fire")) {
@@ -52,9 +51,9 @@ public class Weapon_AK47 : MonoBehaviour {
 		if (startTimer == true) {
 			timeLeft -= Time.fixedDeltaTime;
 			if (timeLeft < 0) {
+				Debug.Log("2");
 				timeLeft = weaponFireSpeed;
 				startTimer = false;
-				canFire = true;
 			}
 		}
 	}
