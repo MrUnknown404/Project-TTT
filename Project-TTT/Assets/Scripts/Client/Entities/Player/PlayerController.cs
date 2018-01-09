@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private float jumpForce = 500f;
 
+	private bool grounded = false;
+	
 	private PlayerMotor motor;
-	private CapsuleCollider capsuleCollider;
+	private BoxCollider boxCollider;
 	
 	private void Start() {
 		motor = GetComponent<PlayerMotor>();
-		capsuleCollider = GetComponent<CapsuleCollider>();
+		boxCollider = this.gameObject.transform.GetChild(2).GetComponent<BoxCollider>();
 	}
 
 	private void Update() {
@@ -37,8 +39,8 @@ public class PlayerController : MonoBehaviour {
 		motor.Move(_velocity);
 		motor.Rotate(_rotation);
 		motor.RotateCamera(_cameraRotationX);
-
-		if (Input.GetButtonDown("Jump") && is_grounded()) {
+		
+		if (Input.GetButtonDown("Jump") && IsGrounded()) {
 			_jumpForce = Vector3.up * jumpForce;
 		}
 
@@ -46,8 +48,8 @@ public class PlayerController : MonoBehaviour {
 		motor.ApplyJump(_jumpForce);
 	}
 
-	private bool is_grounded() {
-		float distance_to_ground = capsuleCollider.bounds.extents.y;
+	private bool IsGrounded() {
+		float distance_to_ground = boxCollider.bounds.extents.y;
 		return Physics.Raycast(transform.position, -Vector3.up, distance_to_ground + 0.25f);
 	}
 }

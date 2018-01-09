@@ -13,7 +13,7 @@ public class PlayerShoot : NetworkBehaviour {
 	[Header("Misc")]
 	[SerializeField]
 	private LayerMask mask;
-
+	
 	private const string PLAYER_TAG = "Player";
 	private const string PROP_TAG = "Prop";
 
@@ -21,12 +21,17 @@ public class PlayerShoot : NetworkBehaviour {
 	private bool canFire = true;
 	private bool startTimer = false;
 
+	private GameObject gun;
+	private GameObject gunAim;
+
 	private void Start() {
 		if (cam == null) {
 			Debug.LogError("PlayerShoot: Camera Not Found!");
 			this.enabled = false;
 		}
 		timeLeft = weaponSettings.weaponFireSpeed;
+		gun  = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
+		gunAim = this.gameObject.transform.GetChild(0).GetChild(1).gameObject;
 	}
 
 	private void Update() {
@@ -36,12 +41,24 @@ public class PlayerShoot : NetworkBehaviour {
 				Shoot();
 				canFire = false;
 				startTimer = true;
-				
+
 			}
 		} else if (weaponSettings.isAuto == false) {
 			if (Input.GetButtonDown("Mouse_Fire")) {
 				Shoot();
 			}
+		}
+		//Aim
+		if (Input.GetButtonDown("Mouse_Aim")) {
+			//objTarget.transform.position += new Vector3(0f, -0.2f, 0.7f);
+			//objTarget.transform.rotation = Quaternion.Euler(0f, 90f, 6f);
+			gun.SetActive(false);
+			gunAim.SetActive(true);
+		} else if (Input.GetButtonUp("Mouse_Aim")) {
+			//objTarget.transform.position = new Vector3(0.425f, -0.2f, 0.7f);
+			//objTarget.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+			gun.SetActive(true);
+			gunAim.SetActive(false);
 		}
 	}
 
