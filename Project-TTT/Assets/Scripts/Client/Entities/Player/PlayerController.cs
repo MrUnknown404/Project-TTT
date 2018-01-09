@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour {
 	private float lookSensitivity = 2f;
 	[SerializeField]
 	private float jumpForce = 500f;
-
-	private bool grounded = false;
 	
 	private PlayerMotor motor;
 	private BoxCollider boxCollider;
