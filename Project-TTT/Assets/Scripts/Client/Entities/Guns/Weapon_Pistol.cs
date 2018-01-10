@@ -5,9 +5,15 @@ public class Weapon_Pistol : MonoBehaviour {
 	//private static string weaponName = "Pistol";
 	//private static float weaponDamage = 10f;
 	private static float weaponRange = 100f;
-	private static float weaponFirerate = 0.5f;
+	private static float weaponFirerate = 0.4f;
 	private static int weaponAmountOfBullets = 1;
 	private static bool isAuto = false;
+
+	private int weaponMaxAmmo = 52;
+	private int weaponMaxAmmoMag = 13;
+	public int weaponAmmo = 0;
+	public int weaponAmmoMag = 0;
+	private int shotsFires;
 
 	[Header("Camera Settings")]
 	[SerializeField]
@@ -25,6 +31,11 @@ public class Weapon_Pistol : MonoBehaviour {
 
 	private GunController gunCtrl;
 
+	private void Awake() {
+		weaponAmmoMag = weaponMaxAmmoMag;
+		weaponAmmo = weaponMaxAmmo;
+	}
+
 	private void Start() {
 		if (cam == null) {
 			Debug.LogError("Weapon_AK47: Camera Not Found!");
@@ -37,13 +48,23 @@ public class Weapon_Pistol : MonoBehaviour {
 		//Fire
 		if (isAuto == true) {
 			if (Input.GetButton("Mouse_Fire") && startTimer == false) {
-				startTimer = true;
-				gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
+				if (weaponAmmoMag != 0) {
+					weaponAmmoMag -= weaponAmountOfBullets;
+					weaponAmmoMag = Mathf.Clamp(weaponAmmoMag, 0, weaponMaxAmmoMag);
+					shotsFires += 1;
+					startTimer = true;
+					gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
+				}
 			}
 		} else if (isAuto == false) {
 			if (Input.GetButtonDown("Mouse_Fire") && startTimer == false) {
-				startTimer = true;
-				gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
+				if (weaponAmmoMag != 0) {
+					weaponAmmoMag -= weaponAmountOfBullets;
+					weaponAmmoMag = Mathf.Clamp(weaponAmmoMag, 0, weaponMaxAmmoMag);
+					shotsFires += 1;
+					startTimer = true;
+					gunCtrl.Shoot(weaponAmountOfBullets, weaponRange, PLAYER_TAG, PROP_TAG, cam, mask);
+				}
 			}
 		}
 

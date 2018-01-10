@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 114731192232898488}
   - component: {fileID: 114425854567689390}
   - component: {fileID: 114148698401887042}
+  - component: {fileID: 114559381924147104}
   - component: {fileID: 114145630130011856}
   - component: {fileID: 114048140836161416}
   - component: {fileID: 114830638317032594}
@@ -689,6 +690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac01695c8ecc09e4ca8d81ea34f8be96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponAmmo: 0
+  weaponAmmoMag: 30
   cam: {fileID: 20965579036856808}
   mask:
     serializedVersion: 2
@@ -736,6 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fbb228fc0cfb24bbff02be4943f162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTimer: 0
 --- !u!114 &114338509498723628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -778,10 +782,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2752aa5c6bff442bb8632340c1da78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponAmmo: 0
+  weaponAmmoMag: 30
   cam: {fileID: 20965579036856808}
   mask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114559381924147104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1911927811053270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051d154cefc99ea409e03629676746c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 1
 --- !u!114 &114731192232898488
 MonoBehaviour:
   m_ObjectHideFlags: 1

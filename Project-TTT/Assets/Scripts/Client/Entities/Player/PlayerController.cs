@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour {
 		motor.Rotate(_rotation);
 		motor.RotateCamera(_cameraRotationX);
 		
-		if (Input.GetButtonDown("Jump") && IsGrounded()) {
+		if (Input.GetButtonDown("Key_Jump") && IsGrounded()) {
 			_jumpForce = Vector3.up * jumpForce;
 		}
 
