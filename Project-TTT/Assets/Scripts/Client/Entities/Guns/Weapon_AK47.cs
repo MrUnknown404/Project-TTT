@@ -11,8 +11,8 @@ public class Weapon_AK47 : MonoBehaviour {
 
 	private int weaponMaxAmmo = 120;
 	private int weaponMaxAmmoMag = 30;
-	public int weaponAmmo = 0;
-	public int weaponAmmoMag = 0;
+	private int weaponAmmo = 0;
+	private int weaponAmmoMag = 0;
 	private int shotsFires;
 
 	[Header("Camera Settings")]

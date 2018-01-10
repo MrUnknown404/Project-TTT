@@ -14,10 +14,10 @@ public class DebugHud:MonoBehaviour {
 
 	void OnGUI() {
 		if (debug == true) {
-			GUI.Label(new Rect(10, Screen.height - 20, 200, 100), "Ak47 Ammo: " + ak.weaponAmmo);
-			GUI.Label(new Rect(10, Screen.height - 40, 200, 100), "Ak47 Mag: " + ak.weaponAmmoMag);
-			GUI.Label(new Rect(10, Screen.height - 60, 200, 100), "Pistol Ammo: " + pistol.weaponAmmo);
-			GUI.Label(new Rect(10, Screen.height - 80, 200, 100), "Pistol Mag: " + pistol.weaponAmmoMag);
+			GUI.Label(new Rect(10, Screen.height - 20, 500, 100), "Ak47 Ammo: " + ak.weaponAmmo + " / " + ak.weaponMaxAmmo);
+			GUI.Label(new Rect(10, Screen.height - 40, 500, 100), "Ak47 Mag: " + ak.weaponAmmoMag + " / " + ak.weaponMaxAmmoMag);
+			GUI.Label(new Rect(10, Screen.height - 60, 500, 100), "Pistol Ammo: " + pistol.weaponAmmo + " / " + pistol.weaponMaxAmmo);
+			GUI.Label(new Rect(10, Screen.height - 80, 500, 100), "Pistol Mag: " + pistol.weaponAmmoMag + " / " + pistol.weaponMaxAmmoMag);
 		}
 	}
 }

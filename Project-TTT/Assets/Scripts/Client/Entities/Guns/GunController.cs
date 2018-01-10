@@ -17,7 +17,7 @@ public class GunController :NetworkBehaviour {
 
 	private float timeLeft = 0.1f;
 	private float timeLeftMax = 0.01f;
-	public bool startTimer = false;
+	private bool startTimer = false;
 
 	[Client]
 	public void Shoot(int weaponAmountOfBullets, float weaponRange, string PLAYER_TAG, string PROP_TAG, Camera cam, LayerMask mask) {
