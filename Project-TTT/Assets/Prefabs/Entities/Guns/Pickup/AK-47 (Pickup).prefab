@@ -20,9 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4460564987604904}
   - component: {fileID: 54656829679594822}
+  - component: {fileID: 114662716176238348}
+  - component: {fileID: 114664170171336810}
   m_Layer: 0
   m_Name: AK-47 (Pickup)
-  m_TagString: Untagged
+  m_TagString: Entity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +42,7 @@ GameObject:
   - component: {fileID: 64827232894215100}
   m_Layer: 0
   m_Name: AK-47
-  m_TagString: Untagged
+  m_TagString: Entity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,3 +142,56 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b1218079a8737bf4a80cc1032165d4e8, type: 3}
+--- !u!114 &114662716176238348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002506519077114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 215
+    i1: 78
+    i2: 109
+    i3: 193
+    i4: 139
+    i5: 189
+    i6: 222
+    i7: 36
+    i8: 105
+    i9: 33
+    i10: 237
+    i11: 115
+    i12: 101
+    i13: 16
+    i14: 225
+    i15: 156
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114664170171336810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1002506519077114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 10
+  m_InterpolateMovement: 1

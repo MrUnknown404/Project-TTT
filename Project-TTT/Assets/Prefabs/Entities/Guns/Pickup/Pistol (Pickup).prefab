@@ -38,9 +38,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4415887052606734}
   - component: {fileID: 54452111759655632}
+  - component: {fileID: 114070372971959760}
+  - component: {fileID: 114557953458221478}
   m_Layer: 0
   m_Name: Pistol (Pickup)
-  m_TagString: Untagged
+  m_TagString: Entity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,3 +142,56 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f0d7e2645b0911240972da27d17b3fb9, type: 3}
+--- !u!114 &114070372971959760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301171413746836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 1
+    i1: 122
+    i2: 177
+    i3: 47
+    i4: 60
+    i5: 68
+    i6: 247
+    i7: 52
+    i8: 184
+    i9: 50
+    i10: 91
+    i11: 27
+    i12: 32
+    i13: 220
+    i14: 167
+    i15: 232
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114557953458221478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1301171413746836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 0
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 10
+  m_InterpolateMovement: 1

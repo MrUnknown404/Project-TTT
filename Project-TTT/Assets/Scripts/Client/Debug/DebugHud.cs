@@ -3,7 +3,7 @@ using UnityEngine.Networking;
 
 public class DebugHud : NetworkBehaviour {
 
-	public bool debug;
+	private bool debug = true;
 
 	private Weapon_AK47 ak;
 	private Weapon_Pistol pistol;
@@ -14,7 +14,7 @@ public class DebugHud : NetworkBehaviour {
 	}
 	
 	void OnGUI() {
-		if (debug == true) {
+		if (debug == true && (ak != null | pistol != null)) {
 			GUI.Label(new Rect(10, Screen.height - 20, 500, 100), "Ak47 Ammo: " + ak.weaponAmmo + " / " + ak.weaponMaxAmmo);
 			GUI.Label(new Rect(10, Screen.height - 40, 500, 100), "Ak47 Mag: " + ak.weaponAmmoMag + " / " + ak.weaponMaxAmmoMag);
 			GUI.Label(new Rect(10, Screen.height - 60, 500, 100), "Pistol Ammo: " + pistol.weaponAmmo + " / " + pistol.weaponMaxAmmo);

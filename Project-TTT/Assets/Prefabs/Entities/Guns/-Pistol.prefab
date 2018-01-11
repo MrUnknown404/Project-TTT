@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4409154155163402}
   - component: {fileID: 114508479573020046}
   m_Layer: 0
-  m_Name: Pistol
-  m_TagString: Untagged
+  m_Name: -Pistol
+  m_TagString: SecondaryWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 23396468287169944}
   m_Layer: 8
   m_Name: Pistol (Aim)
-  m_TagString: Entity
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 23023575339954018}
   m_Layer: 8
   m_Name: Pistol
-  m_TagString: Entity
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

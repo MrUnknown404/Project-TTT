@@ -7,6 +7,8 @@ TagManager:
   - Collision
   - Prop
   - Entity
+  - MainWeapon
+  - SecondaryWeapon
   layers:
   - Default
   - TransparentFX

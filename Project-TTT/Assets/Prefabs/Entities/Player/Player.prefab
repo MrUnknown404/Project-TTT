@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1911927811053270}
   m_IsPrefabParent: 1
+--- !u!1 &1050250052232152
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4273322205180168}
+  m_Layer: 8
+  m_Name: Grenades
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1123656767336522
 GameObject:
   m_ObjectHideFlags: 1
@@ -23,7 +38,7 @@ GameObject:
   - component: {fileID: 23907858366947522}
   m_Layer: 8
   m_Name: Pistol (Aim)
-  m_TagString: Entity
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +51,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4689443765514938}
-  m_Layer: 0
+  - component: {fileID: 114638936928120468}
+  m_Layer: 8
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,9 +68,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4532226465694936}
   - component: {fileID: 114850252228103416}
-  m_Layer: 0
-  m_Name: Pistol
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: -Pistol
+  m_TagString: SecondaryWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,13 +101,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4195663374322534}
   - component: {fileID: 114225794469410646}
-  m_Layer: 0
-  m_Name: AK-47
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: -AK-47
+  m_TagString: MainWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1507520414935130
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +139,7 @@ GameObject:
   - component: {fileID: 23997769302249488}
   m_Layer: 8
   m_Name: Pistol
-  m_TagString: Entity
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +154,7 @@ GameObject:
   - component: {fileID: 4198645494479500}
   - component: {fileID: 33167842432158768}
   - component: {fileID: 23619079319714320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AK-47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +171,7 @@ GameObject:
   - component: {fileID: 4753124333403220}
   - component: {fileID: 33295215482191068}
   - component: {fileID: 23087253029218716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AK-47 (Aim)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,6 +191,21 @@ GameObject:
   m_Layer: 8
   m_Name: PlayerModel
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1831817356281330
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4878803505468800}
+  m_Layer: 8
+  m_Name: Unarmed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,6 +291,19 @@ Transform:
   m_Father: {fileID: 4195663374322534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4273322205180168
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050250052232152}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4689443765514938}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4532226465694936
 Transform:
   m_ObjectHideFlags: 1
@@ -314,6 +358,8 @@ Transform:
   m_Children:
   - {fileID: 4195663374322534}
   - {fileID: 4532226465694936}
+  - {fileID: 4273322205180168}
+  - {fileID: 4878803505468800}
   m_Father: {fileID: 4620529638964956}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -355,6 +401,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4898917419226418}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4878803505468800
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831817356281330}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4689443765514938}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4895242915595742
 Transform:
@@ -772,6 +831,8 @@ MonoBehaviour:
   - {fileID: 114148698401887042}
   - {fileID: 114338509498723628}
   - {fileID: 114559381924147104}
+  - {fileID: 114225794469410646}
+  - {fileID: 114850252228103416}
   remoteLayerName: RemotePlayer
 --- !u!114 &114559381924147104
 MonoBehaviour:
@@ -784,7 +845,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051d154cefc99ea409e03629676746c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+--- !u!114 &114638936928120468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1246069830558306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae48d3dfbf40a6469c76b9fdec015bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedWeapon: 0
 --- !u!114 &114731192232898488
 MonoBehaviour:
   m_ObjectHideFlags: 1

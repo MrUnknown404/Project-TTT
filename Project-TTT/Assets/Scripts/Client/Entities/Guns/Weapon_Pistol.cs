@@ -41,7 +41,7 @@ public class Weapon_Pistol : MonoBehaviour {
 			Debug.LogError("Weapon_AK47: Camera Not Found!");
 			this.enabled = false;
 		}
-		gunCtrl = gameObject.GetComponentInParent<GunController>();
+		gunCtrl = this.gameObject.GetComponentInParent<GunController>();
 	}
 
 	private void Update() {
