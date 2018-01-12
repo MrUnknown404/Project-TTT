@@ -12,9 +12,9 @@ public class PlayerManager : NetworkBehaviour {
 		SetDefaults();
 	}
 
-	public void TakeDamage(int _amount) {
+	public void TakeDamage(int _amount, string _name) {
 		currentHealth -= _amount;
-		Debug.Log(System.Math.Round(Time.time, 2) + ": " + transform.name + " was shot by " + this.name + " for " + _amount + " of damage and now has " + currentHealth + " health");
+		Debug.Log(System.Math.Round(Time.time, 2) + ": " + transform.name + " was shot by " + _name + " for " + _amount + " damage and now has " + currentHealth + " health");
 	}
 
 	public void SetDefaults() {

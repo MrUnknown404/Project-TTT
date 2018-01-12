@@ -6,7 +6,7 @@ public class PlayerController : NetworkBehaviour {
 	
 	private float speed = 5f;
 	private float lookSensitivity = 1.5f;
-	private float jumpForce = 12500f;
+	private float jumpForce = 13000f;
 
 	private bool lockCursor = true;
 

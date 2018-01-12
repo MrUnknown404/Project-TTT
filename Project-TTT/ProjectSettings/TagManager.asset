@@ -9,6 +9,8 @@ TagManager:
   - Entity
   - MainWeapon
   - SecondaryWeapon
+  - Grenade
+  - Unarmed
   layers:
   - Default
   - TransparentFX
