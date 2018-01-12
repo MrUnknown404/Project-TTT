@@ -1,37 +1,38 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(PlayerManager))]
 public class PlayerSetup : NetworkBehaviour {
-
-	public string playerName = "Player: ";
 
 	[SerializeField]
 	Behaviour[] componentsToDisable;
-	[SerializeField]
-	string remoteLayerName = "RemotePlayer";
 
+	private string remoteLayerName = "RemotePlayer";
+	
 	private Camera offlineCamera;
 
 	private void Start() {
 		if (!isLocalPlayer) {
 			DisableComponents();
-			AssignRemoteLayer();
+			AssignRemoteLater();
 		} else {
 			offlineCamera = Camera.main;
 			if (offlineCamera != null) {
 				offlineCamera.gameObject.SetActive(false);
 			}
 		}
-		RegisterPlayer();
 	}
 
-	private void RegisterPlayer() {
-		playerName = playerName + GetComponent<NetworkIdentity>().netId; //Remove line later
-		string _ID = playerName;
-		transform.name = _ID;
+	public override void OnStartClient() {
+		base.OnStartClient();
+
+		string _netID = GetComponent<NetworkIdentity>().netId.ToString();
+		PlayerManager _player = GetComponent<PlayerManager>();
+
+		GameManager.RegisterPlayer(_netID, _player);
 	}
 
-	private void AssignRemoteLayer() {
+	private void AssignRemoteLater() {
 		gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
 	}
 
@@ -45,5 +46,6 @@ public class PlayerSetup : NetworkBehaviour {
 		if (offlineCamera != null) {
 			offlineCamera.gameObject.SetActive(true);
 		}
+		GameManager.UnRegisterPlayer(transform.name);
 	}
 }

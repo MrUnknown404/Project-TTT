@@ -3,53 +3,44 @@
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMotor : MonoBehaviour {
 
-	[Header("Camera Settings:")]
 	[SerializeField]
 	private Camera cam;
-	[SerializeField]
-	private float cameraRotatonLimit = 85f;
-	private float cameraRotationX = 0f;
-	private float currentCameraRotationX = 0f;
 
-	private Vector3 jumpForce = Vector3.zero;
 	private Vector3 velocity = Vector3.zero;
 	private Vector3 rotation = Vector3.zero;
+	private Vector3 jumpForce = Vector3.zero;
+
+	private float cameraRotationX = 0f;
+	private float cameraRotationLimit = 85f;
+	private float currentCameraRotationX = 0f;
 
 	private Rigidbody rb;
-
-	
 
 	private void Start() {
 		rb = GetComponent<Rigidbody>();
 	}
 
-	//Get Movement
-	public void Move(Vector3 _velocity) {
-		velocity = _velocity;
-	}
-
-	//Get Rotation
-	public void Rotate(Vector3 _rotation) {
-		rotation = _rotation;
-	}
-
-	//Get Camera Rotation
-	public void RotateCamera(float _cameraRotationX) {
-		cameraRotationX = _cameraRotationX;
-	}
-
-	//Get Jump
-	public void ApplyJump(Vector3 _jumpForce) {
-		jumpForce = _jumpForce;
-	}
-
-	//Run Physics
-	private void FixedUpdate() {
+		private void FixedUpdate() {
 		PerformMovement();
 		PerformRotation();
 	}
 
-	//Perform Movement
+	public void Move(Vector3 _velocity) {
+		velocity = _velocity;
+	}
+
+	public void Rotate(Vector3 _rot) {
+		rotation = _rot;
+	}
+
+	public void RotateCamera(float _cameraRot) {
+		cameraRotationX = _cameraRot;
+	}
+
+	public void Jump(Vector3 _jumpForce) {
+		jumpForce = _jumpForce;
+	}
+
 	private void PerformMovement() {
 		if (velocity != Vector3.zero) {
 			rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
@@ -59,14 +50,12 @@ public class PlayerMotor : MonoBehaviour {
 		}
 	}
 
-	//Perform Rotation
 	private void PerformRotation() {
 		rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
 		if (cam != null) {
 			currentCameraRotationX -= cameraRotationX;
-			currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotatonLimit, cameraRotatonLimit);
-
-			//Apply
+			currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
+			
 			cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
 		}
 	}
