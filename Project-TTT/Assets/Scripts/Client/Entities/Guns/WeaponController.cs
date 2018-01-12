@@ -127,11 +127,21 @@ public class WeaponController : NetworkBehaviour {
 
 	[ClientRpc]
 	private void RpcSetActive(bool _1, bool _2, bool _3, bool _4, bool _5) {
-		weaponMain.transform.GetChild(0).gameObject.SetActive(_1);
-		weaponSecondary.transform.GetChild(0).gameObject.SetActive(_2);
-		weaponGrenade.transform.GetChild(0).gameObject.SetActive(_3);
-		weaponMelee.transform.GetChild(0).gameObject.SetActive(_4);
-		weaponUnarmed.transform.GetChild(0).gameObject.SetActive(_5);
+		if (weaponMain != null) {
+			weaponMain.transform.GetChild(0).gameObject.SetActive(_1);
+		}
+		if (weaponMain != null) {
+			weaponSecondary.transform.GetChild(0).gameObject.SetActive(_2);
+		}
+		if (weaponMain != null) {
+			weaponGrenade.transform.GetChild(0).gameObject.SetActive(_3);
+		}
+		if (weaponMain != null) {
+			weaponMelee.transform.GetChild(0).gameObject.SetActive(_4);
+		}
+		if (weaponMain != null) {
+			weaponUnarmed.transform.GetChild(0).gameObject.SetActive(_5);
+		}
 	}
 
 	private int selectedWeapon = 0;
