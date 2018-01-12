@@ -40,7 +40,7 @@ public class PlayerMotor : MonoBehaviour {
 	public void Jump(Vector3 _jumpForce) {
 		jumpForce = _jumpForce;
 	}
-
+	
 	private void PerformMovement() {
 		if (velocity != Vector3.zero) {
 			rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);

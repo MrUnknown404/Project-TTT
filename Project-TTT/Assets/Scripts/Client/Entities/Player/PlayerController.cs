@@ -7,7 +7,7 @@ public class PlayerController : NetworkBehaviour {
 	private float speed = 5f;
 	private float lookSensitivity = 1.5f;
 	private float jumpForce = 13000f;
-
+	
 	private bool lockCursor = true;
 
 	private PlayerMotor motor;
@@ -68,6 +68,6 @@ public class PlayerController : NetworkBehaviour {
 
 	private bool IsGrounded() {
 		float distance_to_ground = boxCollider.bounds.extents.y;
-		return Physics.Raycast(transform.position, -Vector3.up, distance_to_ground + 0.25f);
+		return Physics.Raycast(transform.position, Vector3.down, distance_to_ground + 0.25f);
 	}
 }

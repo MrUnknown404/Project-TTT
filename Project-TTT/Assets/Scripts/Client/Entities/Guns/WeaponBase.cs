@@ -4,21 +4,23 @@ public class WeaponBase : MonoBehaviour {
 
 	[Header("Weapon Settings")]
 	[SerializeField]
-	private int weaponDamage;
-	[SerializeField]
-	private int weaponRange;
-	[SerializeField]
 	private float weaponFireRate;
 	[SerializeField]
 	private string weaponName;
 	[SerializeField]
-	private int ammo;
+	private int weaponDamage;
 	[SerializeField]
-	private int ammoMag;
+	private int weaponRange;
 	[SerializeField]
-	private int maxAmmo;
+	private int weaponAmmo;
 	[SerializeField]
-	private int maxAmmoMag;
+	private int weaponAmmoMag;
+	[SerializeField]
+	private int weaponMaxAmmo;
+	[SerializeField]
+	private int weaponMaxAmmoMag;
+	[SerializeField]
+	private int weaponAmmountOfBullets;
 
 	[Header("Misc Settings")]
 	[SerializeField]
@@ -27,19 +29,14 @@ public class WeaponBase : MonoBehaviour {
 	private Camera cam;
 	
 	private WeaponController sCtrl;
-
-	private GameObject mainWeapon;
-	private GameObject secondaryWeapon;
-	private GameObject grenade;
-	private GameObject unarmed;
-
+	
 	private void Start() {
 		sCtrl = GetComponentInParent<WeaponController>();
 	}
 
 	private void Update() {
 		if (Input.GetButtonDown("Mouse_Fire")) {
-			sCtrl.Shoot(weaponRange, weaponDamage, cam, mask);
+			sCtrl.Shoot(weaponRange, weaponDamage, weaponAmmountOfBullets, cam, mask);
 		}
 	}
 }

@@ -10,6 +10,7 @@ TagManager:
   - MainWeapon
   - SecondaryWeapon
   - Grenade
+  - Melee
   - Unarmed
   layers:
   - Default
