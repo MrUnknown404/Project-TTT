@@ -1000,17 +1000,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponFireRate: 0
-  weaponName: Test Base
+  weaponName: Weapon Base
   weaponDamage: 10
   weaponRange: 100
   weaponAmmo: 0
   weaponAmmoMag: 0
   weaponMaxAmmo: 0
   weaponMaxAmmoMag: 0
-  weaponAmmountOfBullets: 0
+  weaponAmmountOfBullets: 1
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   cam: {fileID: 20450735399474992}
 --- !u!114 &114091269005994044
 MonoBehaviour:
@@ -1094,6 +1094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792696c06b3eb174e8754deb5729ae57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableOnDeath:
+  - {fileID: 114303973324341124}
+  - {fileID: 114045762808764928}
+  - {fileID: 114287303833609668}
 --- !u!114 &114421571471536840
 MonoBehaviour:
   m_ObjectHideFlags: 1

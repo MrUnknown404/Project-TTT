@@ -8,5 +8,7 @@ public class RegisterProps : NetworkBehaviour {
 		PropManager _prop = GetComponent<PropManager>();
 
 		GameManager.RegisterProp(_netID, _prop);
+
+		this.GetComponent<PropManager>().Setup();
 	}
 }

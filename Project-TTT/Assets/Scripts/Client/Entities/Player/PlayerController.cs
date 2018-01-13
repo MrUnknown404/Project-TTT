@@ -28,8 +28,8 @@ public class PlayerController : NetworkBehaviour {
 		} else if (Input.GetKeyDown(KeyCode.F) && lockCursor == false) {
 			lockCursor = true;
 		}
-
-		if (lockCursor == true) {
+		
+		if (lockCursor == true && GetComponent<PlayerManager>().isDead == false) {
 			Cursor.lockState = CursorLockMode.Locked;
 		} else {
 			Cursor.lockState = CursorLockMode.None;

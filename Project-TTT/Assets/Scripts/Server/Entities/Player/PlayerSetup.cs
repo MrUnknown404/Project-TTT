@@ -21,6 +21,7 @@ public class PlayerSetup : NetworkBehaviour {
 				offlineCamera.gameObject.SetActive(false);
 			}
 		}
+		GetComponent<PlayerManager>().Setup();
 	}
 
 	public override void OnStartClient() {
@@ -33,6 +34,7 @@ public class PlayerSetup : NetworkBehaviour {
 	}
 
 	private void AssignRemoteLater() {
+		gameObject.transform.GetChild(2).gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
 		gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
 	}
 

@@ -3,6 +3,20 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
+	//Round Settings
+	public static GameManager instance;
+
+	public RoundSettings roundSettings;
+
+	private void Awake() {
+		if (instance != null) {
+			Debug.LogError("More then one GameManager in scene!");
+		} else {
+			instance = this;
+		}
+	}
+
+	//Other
 	private const string PLAYER_ID_PREFIX = "Player: ";
 	private const string PROP_ID_PREFIX = "Prop: ";
 

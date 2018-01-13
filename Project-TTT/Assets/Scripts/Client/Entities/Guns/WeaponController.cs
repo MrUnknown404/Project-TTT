@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class WeaponController : NetworkBehaviour {
+public class WeaponController:NetworkBehaviour {
 	private bool once = false;
 
 	private const string PLAYER_TAG = "Player";
 	private const string PROP_TAG = "Prop";
-	
+
 	private GameObject weaponMain;
 	private GameObject weaponSecondary;
 	private GameObject weaponGrenade;
@@ -64,9 +64,11 @@ public class WeaponController : NetworkBehaviour {
 		Unarmed
 	}
 
+	//dunno why it keeps giving me an error
+#pragma warning disable
 	private EquipedWeaponType equipedWeaponType;
 	private EquipedWeaponTypeRender equipedWeaponTypeRender;
-
+#pragma warning restore
 	private InputSlot inputSlot;
 	private InSlotMain inSlotMain;
 	private InSlotSecondary inSlotSecondary;
@@ -74,7 +76,7 @@ public class WeaponController : NetworkBehaviour {
 	private InSlotMelee inSlotMelee;
 
 	private HitType hitType;
-	
+
 	private void Start() {
 		weaponMain = this.gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
 		weaponSecondary = this.gameObject.transform.GetChild(0).GetChild(0).GetChild(1).gameObject;
@@ -109,7 +111,7 @@ public class WeaponController : NetworkBehaviour {
 		}
 		UpdateWeaponRender();
 	}
-	
+
 	[Client]
 	private void UpdateWeaponRender() {
 		if (equipedWeaponTypeRender == EquipedWeaponTypeRender.MainWeapon && weaponMain != null) {
@@ -172,19 +174,14 @@ public class WeaponController : NetworkBehaviour {
 		if (_previousSelectedWeapon != selectedWeapon) {
 			if (selectedWeapon == 0) {
 				CmdSetWeapons(EquipedWeaponType.MainWeapon);
-				UpdateWeaponRender();
 			} else if (selectedWeapon == 1) {
 				CmdSetWeapons(EquipedWeaponType.SecondaryWeapon);
-				UpdateWeaponRender();
 			} else if (selectedWeapon == 2) {
 				CmdSetWeapons(EquipedWeaponType.Grenade);
-				UpdateWeaponRender();
 			} else if (selectedWeapon == 3) {
 				CmdSetWeapons(EquipedWeaponType.Melee);
-				UpdateWeaponRender();
 			} else if (selectedWeapon == 4) {
 				CmdSetWeapons(EquipedWeaponType.Unarmed);
-				UpdateWeaponRender();
 			}
 		}
 
@@ -230,10 +227,10 @@ public class WeaponController : NetworkBehaviour {
 	private void CmdPlayerShot(string _hitID, int _damage, HitType hitType) {
 		if (hitType == HitType.Player) {
 			PlayerManager _player = GameManager.GetPlayer(_hitID);
-			_player.TakeDamage(_damage, this.gameObject.name);
+			_player.RpcTakeDamage(_damage, this.gameObject.name);
 		} else if (hitType == HitType.Prop) {
 			PropManager _prop = GameManager.GetProp(_hitID);
-			_prop.TakeDamage(_damage, this.gameObject.name);
+			_prop.RpcTakeDamage(_damage, this.gameObject.name);
 		} else {
 			Debug.Log("PlayerShoot/CmdPlayerShot: Error ?else was triggered?");
 		}
